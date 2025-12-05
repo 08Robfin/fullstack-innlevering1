@@ -1,0 +1,42 @@
++------------------+
+|     TABLES       |
++------------------+
+| id (PK)          |
+| table_number     |
+| seats            |
++------------------+
+          ^
+          |
+          | FK: table_id → TABLES.id
+          |
++---------------------------+
+|         BOOKINGS          |
++---------------------------+
+| id (PK)                   |
+| customer_name             |
+| customer_email            |
+| date                      |
+| time                      |
+| number_of_people          |
+| table_id (FK)             |
+| comment                   |
++---------------------------+
+
++------------------+
+|   MENU_ITEMS     |
++------------------+
+| id (PK)          |
+| name             |
+| price            |
+| category         |
+| description      |
++------------------+
+
++------------------+
+|   EMPLOYEES      |
++------------------+
+| id (PK)          |
+| name             |
+| username         |
+| password         |
++------------------+
