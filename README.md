@@ -2,8 +2,6 @@
 Task for school.
 # Plan.md
 
-## **Prosjekt: Tangen Torv Restaurant – Fullstack-løsning**
-
 ### **Kort beskrivelse**
 
 Jeg skal lage nettsider for restauranten **Tangen Torv**, med informasjon om restauranten, meny, åpningstider og kontaktinfo.
