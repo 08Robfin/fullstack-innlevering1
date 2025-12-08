@@ -3,7 +3,7 @@ services:
     image: mariadb          
     environment:             
       MARIADB_ROOT_PASSWORD: example
-      MARIADB_DATABASE: demo
+      MARIADB_DATABASE: Tangen-DB
     ports: 
        - 3306:3306     
     volumes:               
