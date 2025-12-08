@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestill bord – Tangen Torv</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Bestill bord</h1>
+    <a href="index.html">Tilbake</a>
+    <a class="login-btn" href="admin/admin-login.html">Ansatt Login</a>
+</header>
+
+<main>
+
+    <section>
+        <h2>Åpningstider</h2>
+        <ul>
+            <li>Man–Tor: 11:00 – 21:00</li>
+            <li>Fre–Lør: 11:00 – 23:00</li>
+            <li>Søndag: 12:00 – 20:00</li>
+        </ul>
+    </section>
+
+    <h2>Send forespørsel</h2>
+
+    <form>
+        <label>Navn:</label>
+        <input type="text" required>
+
+        <label>Email:</label>
+        <input type="email" required>
+
+        <label>Dato:</label>
+        <input type="date" required>
+
+        <label>Tid:</label>
+        <input type="time" required>
+
+        <label>Antall personer:</label>
+        <input type="number" min="1" max="20" required>
+
+        <label>Kommentar:</label>
+        <textarea></textarea>
+
+        <button type="submit">Send forespørsel</button>
+    </form>
+
+</main>
+
+</body>
+</html>
