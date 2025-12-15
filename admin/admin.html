@@ -9,21 +9,42 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            padding: 20px;
-            background: #f5f5f5;
-            font-family: Arial;
+            padding: 30px;
+            min-height: 100vh;
+            background: url("../image.png") center calc(50% + 50px) / cover no-repeat;
+            color: #fff;
+            font-family: "Poppins", system-ui, sans-serif;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 0;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
         }
 
         .mainContent {
             width: 75%;
         }
 
+        .mainContent h1 {
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
         .profileBox {
             width: 22%;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.1);
+            background: #141414;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
             height: fit-content;
         }
 
@@ -33,45 +54,71 @@
             align-items: center;
         }
 
+        .profileBox h2 {
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .profileBox p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
         .profileBox img {
             width: 40%;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
         .logoutBtn {
-            margin-top: 15px;
+            margin-top: 20px;
             display: block;
-            width: 1fr%;
-            padding: 10px;
-            background: #cc0000;
-            color: white;
-            border-radius: 6px;
+            padding: 12px;
+            background: #d4af37;
+            color: #111;
+            border-radius: 30px;
             text-align: center;
             text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .logoutBtn:hover {
-            background: red;
+            opacity: 0.9;
         }
 
         .tablesSection {
             width: 100%;
         }
 
-        table {
-            width: 100%;
-            background: white;
-            border-collapse: collapse;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
+        .tablesSection h2 {
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-weight: 500;
         }
 
-        th,
-        td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+        table {
+            width: 100%;
+            background: #141414;
+            border-collapse: collapse;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        th {
+            background: #1c1c1c;
+            padding: 14px;
             text-align: left;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 14px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.85rem;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -96,7 +143,7 @@
 </div>
 
 <div class="tablesSection">
-    <h2>Allerede godkjente bestillinger</h2>
+    <h2>Bestillinger</h2>
 
     <table>
         <tr>

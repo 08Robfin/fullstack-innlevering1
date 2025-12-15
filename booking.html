@@ -2,58 +2,55 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Bestill bord – Tangen Torv</title>
+    <title>Reservation – Tangen Torv</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
-    <h1>Bestill bord</h1>
     <nav>
-        <a href="index.html">Hjem</a>
-        <a href="menu.html">Meny</a>
-        <a href="contact.html">Kontakt</a>
-        <a href="booking.html">Bestill bord</a>
-        <a class="login-btn" href="admin/admin-login.html">Ansatt Login</a>
+        <a href="index.html">HOME</a>
+        <a href="menu.html">MENU</a>
     </nav>
 </header>
 
-<main>
+<div class="page">
+    <div class="page-content">
+        <div class="menu-card">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="date" required>
 
-    <section>
-        <h2>Åpningstider</h2>
-        <ul>
-            <li>Man–Tor: 11:00 – 21:00</li>
-            <li>Fre–Lør: 11:00 – 23:00</li>
-            <li>Søndag: 12:00 – 20:00</li>
-        </ul>
-    </section>
+                <div class="slots">
+                    <label class="slot">
+                        <input type="radio" name="time" required>
+                        <span>16:00 – 18:00</span>
+                    </label>
+                    <label class="slot">
+                        <input type="radio" name="time">
+                        <span>18:00 – 20:00</span>
+                    </label>
+                    <label class="slot">
+                        <input type="radio" name="time">
+                        <span>20:00 – 22:00</span>
+                    </label>
+                </div>
 
-    <h2>Send forespørsel</h2>
+                <input type="number" placeholder="Guests" min="1" max="20" required>
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send request</button>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <form>
-        <label>Navn:</label>
-        <input type="text" required>
-
-        <label>Email:</label>
-        <input type="email" required>
-
-        <label>Dato:</label>
-        <input type="date" required>
-
-        <label>Tid:</label>
-        <input type="time" required>
-
-        <label>Antall personer:</label>
-        <input type="number" min="1" max="20" required>
-
-        <label>Kommentar:</label>
-        <textarea></textarea>
-
-        <button type="submit">Send forespørsel</button>
-    </form>
-
-</main>
+<footer>
+    <p>kontakt@tangentorv.no · 38 00 00 00 </p>
+    <p>Tangenvn 12, Kristiansand</p>
+    <br>
+    <p><a href="admin/admin-login.html">Staff login</a></p>
+</footer>
 
 </body>
 </html>

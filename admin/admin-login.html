@@ -2,31 +2,38 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Admin – Login</title>
+    <title>Staff login – Tangen Torv</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
 <header>
-
-<h1>Ansatt-innlogging</h1>
-<nav>
-    <a href="../index.html">Hjem</a>
-    <a href="../menu.html">Meny</a>
-    <a href="../contact.html">Kontakt</a>
-    <a href="../booking.html">Bestill bord</a>
-    <a class="login-btn" href="admin-login.html">Ansatt Login</a>
-</nav>
+    <nav>
+        <a href="../index.html">BACK TO SITE</a>
+    </nav>
 </header>
-<br>
-<form class="login-form" action="admin.html">
-    <label>Brukernavn:</label>
-    <input type="text" required>
 
-    <label>Passord:</label>
-    <input type="password" required>
+<div class="page">
+    <div class="page-content" style="display:flex; justify-content:center; align-items:center; min-height:70vh;">
+        <div class="menu-card" style="max-width:420px; width:100%;">
+            <h2 style="text-align:center; margin-bottom:30px; letter-spacing:2px;">
+                STAFF LOGIN
+            </h2>
+            <form action="admin.html">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <button type="submit">Logg inn</button>
-</form>
+<footer>
+    <p>kontakt@tangentorv.no · 38 00 00 00 </p>
+    <p>Tangenvn 12, Kristiansand</p>
+    <br>
+    <p><a href="admin/admin-login.html">Staff login</a></p>
+</footer>
 
 </body>
 </html>
