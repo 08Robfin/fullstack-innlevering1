@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin – Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
 
     <style>
-
         body {
             display: flex;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
             background: #f5f5f5;
             font-family: Arial;
         }
 
-        /* Venstre innhold */
         .mainContent {
             width: 75%;
         }
 
-        /* Profilboks */
         .profileBox {
             width: 22%;
             background: white;
@@ -33,18 +29,12 @@
 
         .profileContent {
             display: flex;
-            flex-direction: row;
-            align-items: center;
             gap: 15px;
-        }
-
-        .profileText {
-            flex: 1;
+            align-items: center;
         }
 
         .profileBox img {
             width: 120px;
-            height: auto;
             border-radius: 10px;
         }
 
@@ -55,17 +45,15 @@
             padding: 10px;
             background: #cc0000;
             color: white;
-            border: none;
-            text-align: center;
             border-radius: 6px;
-            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
         }
 
         .logoutBtn:hover {
             background: red;
         }
 
-        /* Tabellen skal fylle hele bredden */
         .tablesSection {
             width: 100%;
         }
@@ -76,33 +64,24 @@
             border-collapse: collapse;
             border-radius: 10px;
             overflow: hidden;
+            margin-bottom: 30px;
         }
 
         th, td {
             padding: 10px;
             border-bottom: 1px solid #ddd;
+            text-align: left;
         }
 
-        .ok { color: green; font-weight: bold; }
-        .conflict { color: red; font-weight: bold; }
-
-        button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .ok {
+            color: green;
+            font-weight: bold;
         }
 
-        .godkjenn {
-            background: green;
-            color: white;
+        .conflict {
+            color: red;
+            font-weight: bold;
         }
-
-        .disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
     </style>
 </head>
 <body>
@@ -115,196 +94,50 @@
 <!-- HØYRE PROFIL -->
 <div class="profileBox">
     <div class="profileContent">
-        <div class="profileText">
+        <div>
             <h2>Ola Ansatt</h2>
             <p><strong>Stilling:</strong> Servitør</p>
             <p><strong>Arbeidstid:</strong> 16:00 – 22:00</p>
             <p><strong>Ansatt-ID:</strong> 18273</p>
         </div>
-
         <img src="ansatt.jpg" alt="Ansatt">
     </div>
 
-    <!-- LOGG UT KNAPP UNDER INFO -->
-    <a href="admin-login.html">
-        <button class="logoutBtn">Logg ut</button>
-    </a>
+    <a class="logoutBtn" href="admin-login.html">Logg ut</a>
 </div>
 
-<!-- TABELLENE SOM SKAL SPANNE HELE SIDEN -->
+<!-- TABELLER -->
 <div class="tablesSection">
 
     <h2>Allerede godkjente bestillinger</h2>
-    <table id="approvedTable">
+    <table>
         <tr>
             <th>Navn</th>
             <th>Start</th>
             <th>Slutt</th>
             <th>Bord</th>
         </tr>
-    </table>
-
-    <h2>Bestillinger som venter</h2>
-    <table id="pendingTable">
         <tr>
-            <th>Navn</th>
-            <th>Start</th>
-            <th>Slutt</th>
-            <th>Bord</th>
-            <th>Status</th>
-            <th>Handling</th>
+            <td>Kari Nordmann</td>
+            <td>18:00</td>
+            <td>19:00</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Marie Olsen</td>
+            <td>18:30</td>
+            <td>19:30</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Per Hansen</td>
+            <td>19:00</td>
+            <td>20:00</td>
+            <td>6</td>
         </tr>
     </table>
 
 </div>
-
-
-
-
-<!-- ===================== -->
-<!--         SCRIPT        -->
-<!-- ===================== -->
-<script>
-
-// GODKJENTE BESTILLINGER
-let approved = [
-    { navn: "Kari Nordmann", start: "18:00", slutt: "19:00", bord: "3" }
-];
-
-// BESTILLINGER SOM VENTER
-let pending = [
-    { navn: "Marie Olsen", start: "18:30", slutt: "19:30", bord: "" },
-    { navn: "Per Hansen", start: "19:00", slutt: "20:00", bord: "" }
-];
-
-// Konverter "18:00" → 1800
-function timeToNumber(time) {
-    return Number(time.replace(":", ""));
-}
-
-// Godkjente bookinger
-function renderApproved() {
-    let table = document.getElementById("approvedTable");
-
-    table.innerHTML = `
-        <tr>
-            <th>Navn</th><th>Start</th><th>Slutt</th><th>Bord</th>
-        </tr>
-    `;
-
-    for (let i = 0; i < approved.length; i++) {
-        let b = approved[i];
-
-        table.innerHTML += `
-            <tr>
-                <td>${b.navn}</td>
-                <td>${b.start}</td>
-                <td>${b.slutt}</td>
-                <td>${b.bord}</td>
-            </tr>
-        `;
-    }
-}
-
-// Ventende bookinger
-function renderPending() {
-    let table = document.getElementById("pendingTable");
-
-    table.innerHTML = `
-        <tr>
-            <th>Navn</th><th>Start</th><th>Slutt</th><th>Bord</th><th>Status</th><th>Handling</th>
-        </tr>
-    `;
-
-    for (let i = 0; i < pending.length; i++) {
-        let b = pending[i];
-
-        table.innerHTML += `
-            <tr>
-                <td>${b.navn}</td>
-                <td>${b.start}</td>
-                <td>${b.slutt}</td>
-                <td>
-                    <select onchange="chooseTable(${i}, this.value)">
-                        <option value="">Ingen valgt</option>
-                        <option value="1">Bord 1</option>
-                        <option value="2">Bord 2</option>
-                        <option value="3">Bord 3</option>
-                        <option value="4">Bord 4</option>
-                        <option value="5">Bord 5</option>
-                    </select>
-                </td>
-                <td id="status${i}">Velg bord</td>
-                <td>
-                    <button id="approve${i}" class="godkjenn disabled" disabled onclick="approveBooking(${i})">
-                        Godkjenn
-                    </button>
-                </td>
-            </tr>
-        `;
-    }
-}
-
-// Velge bord
-function chooseTable(index, bordValgt) {
-
-    pending[index].bord = bordValgt;
-
-    let statusCell = document.getElementById("status" + index);
-    let approveBtn = document.getElementById("approve" + index);
-
-    if (bordValgt === "") {
-        statusCell.innerHTML = "Velg bord";
-        statusCell.className = "";
-        approveBtn.disabled = true;
-        approveBtn.classList.add("disabled");
-        return;
-    }
-
-    // Sjekk om bordet er opptatt i overlapping
-    for (let i = 0; i < approved.length; i++) {
-        let a = approved[i];
-
-        if (a.bord === bordValgt) {
-
-            let aStart = timeToNumber(a.start);
-            let aEnd   = timeToNumber(a.slutt);
-
-            let pStart = timeToNumber(pending[index].start);
-            let pEnd   = timeToNumber(pending[index].slutt);
-
-            let overlap = (pStart < aEnd && pEnd > aStart);
-
-            if (overlap) {
-                statusCell.innerHTML = "KONFLIKT – opptatt";
-                statusCell.className = "conflict";
-                approveBtn.disabled = true;
-                approveBtn.classList.add("disabled");
-                return;
-            }
-        }
-    }
-
-    statusCell.innerHTML = "Ledig";
-    statusCell.className = "ok";
-    approveBtn.disabled = false;
-    approveBtn.classList.remove("disabled");
-}
-
-// Godkjenn booking
-function approveBooking(index) {
-    approved.push(pending[index]);
-    pending.splice(index, 1);
-
-    renderApproved();
-    renderPending();
-}
-
-// Start
-renderApproved();
-renderPending();
-
-</script>
 
 </body>
 </html>
